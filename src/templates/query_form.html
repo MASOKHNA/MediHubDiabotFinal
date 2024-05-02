@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ask a question</title>
+    <link rel="stylesheet" href="{% static 'css/chatbot_styles.css' %}">
+</head>
+<body>
+    <a href="/"><h1>MediHub DiagBot</h1></a>
+    <h2>Ask a question</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="query" placeholder="Entrez votre question" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

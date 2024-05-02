@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Résultat</title>
+    <link rel="stylesheet" href="{% static 'css/chatbot_styles.css' %}">
+</head>
+<body>
+    <a href="/"><h1>MediHub DiagBot</h1></a>
+    <h2>DiagBot Answer</h2>
+    <div class="box">
+        <p>{{ response.result }}</p>
+        <div id="sources">
+            <h2>Sources</h2>
+            <ul id="sourceList">
+                {% for document in response.source_documents %}
+                    <li>Source: {{ document.metadata.source }}, Page: {{ document.metadata.page }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <a href="{% url 'launch_diagbot' %}"><h2>Another question</h2></a> 
+    
+
+</body>
+</html>
